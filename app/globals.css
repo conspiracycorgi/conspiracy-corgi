@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    --primary: 24.6 95% 53.1%;
+    --primary-foreground: 60 9.1% 97.8%;
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 24.6 95% 53.1%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/corkboard-background-with-seamless-cork-texture-thumb47-L9hJtb9GltyY76MVwpu5NPt6uU32d0.png");
+    background-repeat: repeat;
+    background-size: 800px;
+    min-height: 100vh;
+  }
+
+  /* Typography styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  .heading-text,
+  .body-text {
+    font-family: var(--font-luckiest-guy);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .heading-text {
+    @apply text-orange-500;
+    text-shadow: 
+      -2px -2px 0 theme(colors.white),
+      2px -2px 0 theme(colors.white),
+      -2px 2px 0 theme(colors.white),
+      2px 2px 0 theme(colors.white);
+  }
+
+  .hero-text {
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000, -3px -3px 0 #000, 3px -3px 0 #000,
+      -3px 3px 0 #000, 3px 3px 0 #000;
+    letter-spacing: 0.05em;
+  }
+
+  .logo-text {
+    @apply text-orange-500;
+    text-shadow: 
+      -1px -1px 0 theme(colors.white),
+      1px -1px 0 theme(colors.white),
+      -1px 1px 0 theme(colors.white),
+      1px 1px 0 theme(colors.white);
+  }
+
+  /* Updated class for small orange text with black border */
+  .small-orange-text {
+    @apply text-orange-500 text-sm;
+    text-shadow: 
+      -1px -1px 0 theme(colors.black),
+      1px -1px 0 theme(colors.black),
+      -1px 1px 0 theme(colors.black),
+      1px 1px 0 theme(colors.black);
+  }
+
+  /* Button styles */
+  .btn,
+  .button,
+  button {
+    font-family: var(--font-luckiest-guy);
+    @apply text-orange-500;
+    text-shadow: 
+      -1px -1px 0 theme(colors.black),
+      1px -1px 0 theme(colors.black),
+      -1px 1px 0 theme(colors.black),
+      1px 1px 0 theme(colors.black);
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Maze game styles */
+.maze-cell {
+  transition: background-color 0.3s ease;
+}
+
+.maze-cell.wall {
+  @apply bg-primary/80 dark:bg-primary/90;
+}
+
+.maze-cell.path {
+  @apply bg-background/50;
+}
+
+.maze-cell.start {
+  @apply bg-green-500;
+}
+
+.maze-cell.end {
+  @apply bg-red-500;
+}
+
+.maze-cell.player {
+  @apply bg-blue-500;
+}
+
+.maze-cell.visited {
+  @apply bg-purple-200/50 dark:bg-purple-900/50;
+}
+
+/* Evidence item glow effect */
+.evidence-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px 2px rgba(0, 255, 0, 0.3);
+  }
+  to {
+    box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.6);
+  }
+}
+
+/* Card and container styles with backdrop blur */
+.content-container {
+  @apply bg-background/95 backdrop-blur-sm;
+}
+
+/* Custom cursor styles */
+html,
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="%23000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>')
+    4 4, auto;
+}
+
